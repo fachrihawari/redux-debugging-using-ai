@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Product from './components/Product'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from './store/productSlice'
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     <>
       <Navbar />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4">
+      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-4 py-4 px-24">
         {/* 3. Render the products */}
         {items.map(item => (
           <Product key={item.id} product={item} />

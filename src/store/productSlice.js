@@ -36,4 +36,6 @@ export const fetchProducts = () => async dispatch => {
   }
 }
 
-export default productSlice.reducer;
+const productReducer = productSlice.reducer;
+
+export default productReducer;
