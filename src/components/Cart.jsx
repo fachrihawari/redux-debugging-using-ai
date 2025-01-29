@@ -3,8 +3,10 @@ import CartItem from "./CartItem";
 
 export default function Cart() {
   const cartItems = useSelector((state) => {
-    state.cart.items
+    return state.cart.items;
   });
+
+  console.log(cartItems)
 
   return (
     <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded border border-gray-200 shadow-md">
@@ -16,7 +18,7 @@ export default function Cart() {
           ) : (
             cartItems.map((item) => (
               <CartItem
-                key={item.id}
+                key={item.productId}
                 productId={item.productId}
                 quantity={item.quantity}
                 product={item.product}
