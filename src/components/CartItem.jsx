@@ -1,7 +1,14 @@
-
+import { useDispatch } from "react-redux";
+import { removeItemFromCart } from "../store/cartSlice";
 
 export default function CartItem(props) {
-  const { product, quantity, productId } = props
+  const { product, quantity, productId } = props;
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeItemFromCart(productId));
+  };
+
   return (
     <div className="py-2 flex items-center gap-2">
       <img
@@ -19,6 +26,7 @@ export default function CartItem(props) {
         {/* Delete Button */}
         <button
           className="text-gray-400 hover:text-red-500"
+          onClick={handleRemoveFromCart}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +39,5 @@ export default function CartItem(props) {
         </button>
       </div>
     </div>
-  )
-
+  );
 }
