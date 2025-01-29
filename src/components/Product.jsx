@@ -1,10 +1,14 @@
+import { useDispatch } from "react-redux";
 import { addItemToCart } from "../store/cartSlice";
 
 export default function Product(props) {
   const { product } = props
+  const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    addItemToCart(product)
+    console.log("Add to cart:", product);
+
+    dispatch(addItemToCart(product));
   }
 
   return (
