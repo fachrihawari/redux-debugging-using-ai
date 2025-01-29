@@ -7,13 +7,30 @@ Kita akan mencoba menggunakan AI untuk membantu kita melakukan debugging pada ap
 <details>
   <summary>(Bug) Error: could not find react-redux context value; please ensure the component is wrapped in a <code>Provider</code></summary>
 
-  Problem: 
+  Problem: App component kita, belum dibungkus dengan Provider dari react-redux.
 
-  Solution:
+  Solution: Bungkus App component dengan Provider dari react-redux. biasanya ada di main.jsx atau index.jsx
 
   Contoh:
 
   ```javascript
+// file: main.jsx
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux' // Import the Provider component
+import './index.css'
+import App from './App.jsx'
+import store from './store/index.js' // Import the Redux store
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </StrictMode>,
+)
+
   ```
 </details>
 
